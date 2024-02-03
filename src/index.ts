@@ -102,7 +102,7 @@ app.delete('/:key', async (c) => {
     }
     delete data[key];
     await writeData(data);
-    return c.json("");
+    return c.json(null);
   } catch (error) {
     console.error(error);
     return c.text('internal error', 500)
@@ -112,7 +112,6 @@ app.delete('/:key', async (c) => {
 async function readData() {
   try {
     const content = fs.readFileSync(dataFilePath, 'utf-8');
-    console.log(content)
     return content && JSON.parse(content);
   } catch (error) {
     if ((error as any).code === 'ENOENT') {
