@@ -102,7 +102,7 @@ app.delete('/:key', async (c) => {
     }
     delete data[key];
     await writeData(data);
-    return c.json(data);
+    return c.json("");
   } catch (error) {
     console.error(error);
     return c.text('internal error', 500)
