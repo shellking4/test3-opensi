@@ -36,7 +36,7 @@ app.post('/',
       return context.json(data)
     } catch (error) {
       console.error(error);
-      context.text('internal error', 500)
+      return context.text('internal error', 500)
     }
   });
 
